@@ -12,7 +12,7 @@ export default async function handler(request, response) {
       return response.status(404).json({ status: "Not Found" });
     }
 
-    response.status(200).json(product);
+    return response.status(200).json(product);
   }
   if (request.method === "PATCH") {
     const updatedProduct = await Product.findByIdAndUpdate(id, {
