@@ -19,7 +19,7 @@ export default async function handler(request, response) {
       $set: request.body,
     });
     console.log(updatedProduct);
-    response.status(200).json({ status: "Product updated" });
+    return response.status(200).json({ status: "Product updated" });
   }
   if (request.method === "DELETE") {
     const deletedProduct = await Product.findByIdAndDelete(id);
