@@ -14,7 +14,7 @@ export default async function handler(request, response) {
 
     return response.status(200).json(product);
   }
-  if (request.method === "PATCH") {
+  if (request.method === "PUT") {
     const updatedProduct = await Product.findByIdAndUpdate(id, {
       $set: request.body,
     });
@@ -26,5 +26,5 @@ export default async function handler(request, response) {
     return response.status(200).json({ status: "Product deleted" });
   }
 
-  response.status(405).json({ status: "Method not allowed" });
+  return response.status(405).json({ status: "Method not allowed" });
 }
